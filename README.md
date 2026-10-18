@@ -19,6 +19,45 @@ AROKI `2.0.36` or newer.
 The index contains only this connector. Availability can change independently
 of AROKI, and users and source publishers remain responsible for ensuring they
 have permission to access and distribute the content they configure.
+   `kas021/AROKI-Connectors`
+
+3. Tap **Add verified sources**.
+4. Review the repository and signing-key fingerprint.
+5. Choose the active source from the source picker.
+
+Adding a repository verifies its repository signature, every manifest
+signature, SHA-256 digest, schema and manifest identity before a connector is
+stored locally on the device. AROKI then lets the user choose its active
+source at any time.
+
+## Published connectors
+
+- One Pace
+- AnimeGG
+
+Synthetiq One was retired on October 9, 2026 because current playback is
+unreliable. Refresh the collection to receive its retired status.
+Retirement stops new install/update offers; it does not remotely delete installed
+copies, downloads, saved titles or history. Its historical manifests remain in
+the repository. AniKoto is active again; the signed index is authoritative for
+current versions and compatibility. Flux 0.1.4 and AniPM 0.1.2 are active.
+
+The repository also contains **Update Flow Test**, a non-catalogue fixture used
+to verify source-update handling. It is not a recommended content source.
+
+The index contains the exact compatibility track for every connector. A source
+can change independently of AROKI, so availability is not guaranteed. Users
+and source publishers remain responsible for ensuring they have permission to
+access and distribute the content they configure.
+
+AniNeko, AniLol, and AnimeAV1 were retired from the public index after the
+August 2026 Aroki certification sweep found no Aroki-compatible playback path.
+Previously installed copies remain under the user's control and can be removed
+on-device. Their historical manifests remain recoverable through Git history.
+
+Senshi, ToonTales, DonghuaWorld, and Archive Classics were withdrawn in earlier
+reviews. Previously installed copies remain under the user's control and can be
+removed on-device.
 
 ## Safety boundary
 
