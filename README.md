@@ -7,16 +7,22 @@ This repository contains bounded declarative JSON manifests and the
 AROKI iOS application, executable modules, JavaScript, WebViews, browser
 automation, credentials, media files, or a proxy/backend service.
 
-## Available connector
+## Available connectors
 
-This feed currently offers only **AniWorld** (`aniworld-expansion`),
-an experimental multilingual video connector. It provides native declarative
-discovery, search, title details, episode listings, and stream resolution for
-the configured AniWorld hosts, with German Dub and Sub (German subtitles,
-English-subtitle fallback). The connector is version `0.4.0` and requires
-AROKI `2.0.36` or newer.
+This feed offers two experimental AniWorld video connectors. Both provide
+native declarative discovery, search, title details, episode listings, and
+stream resolution for the configured AniWorld hosts, and require AROKI
+`2.0.36` or newer.
 
-The index contains only this connector. The other manifests, logos and the
+- **AniWorld** (`aniworld-expansion`, `0.4.1`): Sub, German subtitles first
+  with English-subtitle fallback.
+- **AniWorld (German Dub)** (`aniworld-german-dub`, `0.1.0`): German audio.
+  Episode lists only include episodes AniWorld marks with German audio.
+
+Dub is a separate source because Aroki's episode panels carry one variant per
+connector; per-episode variant tags are not accepted inside panels.
+
+The index contains only these connectors. The other manifests, logos and the
 signed `artwork.json` are kept in sync with the upstream
 `kas021/AROKI-Connectors` collection but are not listed in this feed. Availability can change independently
 of AROKI, and users and source publishers remain responsible for ensuring they
