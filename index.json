@@ -1,209 +1,26 @@
 {
-  "connectors" : [
+  "schemaVersion": 1,
+  "repositoryID": "aroki-connectors",
+  "name": "AROKI Connectors",
+  "enabled": true,
+  "generatedAt": 1792327142,
+  "connectors": [
     {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anikoto",
-      "id" : "anikoto",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anikoto\/releases\/49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413\/connector.json",
-        "sha256" : "49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413",
-        "signature" : "DV5+yGOavriBWbx2v6hDvr1JMxaIzT9Ly1PzfB0AROOqM4GdKucNRE+PYOMtDc25eQUzCLAHMTv1aeplg64GAg=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniKoto",
-      "releaseNotes" : "Restored in 0.3.10: AniKoto's own provider feed is now resolved through AniKage's public koto route (the direct MegaPlay responses became encrypted). Each title is matched by AniKoto's exact title, format, premiere season and year, and fails closed with no playable stream when that match is unavailable. Sub and Dub with all published caption languages.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.3.10"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anikage",
-      "id" : "anikage",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anikage\/releases\/674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9\/connector.json",
-        "sha256" : "674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9",
-        "signature" : "g1cMhrSA\/uvpe1w+Adxudl0naJvfYJ\/H14CpyFKuLrfc8JRB1a6LWjm41cGStFKJq5+XjKWsLD\/oJesgCjK1Ag=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniKage (BETA)",
-      "releaseNotes" : "Adds an AniList shared identity for Aroki's optional, user-selected source recovery. Keeps the published 0.3.4 playback route, provider, Sub\/Dub mapping, subtitles, headers, and host permissions unchanged.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.3.5"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "animegg",
-      "id" : "animegg",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/animegg\/connector.json",
-        "sha256" : "fba5860444a3e3bf42f9712e515634a228a0975d1df9433421bcff9a578a6dee",
-        "signature" : "0Xs0UAb5U3c392VSgbF526Vjcsg45EBwJVV5YRJh6DbzRrWV4lAq+iUR08\/a5bHMHPBsl\/gdzbwHuXPrxM5oAA=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AnimeGG",
-      "releaseNotes" : "Declares honest per-episode Sub and Dub availability so unavailable audio is disabled before playback.",
-      "releaseTrack" : "stable",
-      "status" : "active",
-      "version" : "1.1.1"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "update-flow-test",
-      "id" : "update-flow-test",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/update-flow-test\/connector.json",
-        "sha256" : "d5147401029b3bbd1bcdc5e7b50c3cc074ea66952eeaf5eca3f565fffbc1a5d6",
-        "signature" : "hJcQnoYyBFGJTFIwbyxLcZPFZo74cYjnXIYCXJaq0JqTyMHW+QA6A+thgAzltQtAK3vLG3\/kuSQR3pgRcEQ\/Ag=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "Update Flow Test",
-      "releaseNotes" : "Version 1.0.0 for validating Aroki's signed source-update flow.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.0.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "onepace",
-      "id" : "onepace",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/onepace\/connector.json",
-        "sha256" : "97c91e3f297dfdf3c39bed23209da241149eabfe98f12d52b23ea69a01fa4238",
-        "signature" : "nMucuSENeFN+nfS4\/UtsxMZ7V8NyxrJKkKviItwLIRYmLCqfNsquzs0hIfbtol8ZNrYSw+\/tgELbeCLCBJEYDw=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "One Pace",
-      "releaseNotes" : "M25: Consolidates One Pace into a single stable title on discovery and search. Increases concurrency to 4 workers and raises timeout to 30s so all 485+ episodes across all arcs load smoothly.",
-      "releaseTrack" : "stable",
-      "status" : "active",
-      "version" : "2.2.1"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "synthetiq-one",
-      "id" : "synthetiq-one",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/synthetiq-one\/connector.json",
-        "sha256" : "9a1ebfcd775cb7fbe0e671e617c7a309b4889728fc6dd2869a512607cb110c15",
-        "signature" : "0c5hICDww7anM+5KQmP9DlHsgCacRxSeoldunMKfORkGgjZyObuVSRPPrGX2Gmy97LOMzlq8b8wAuuygRy4ECw=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "Synthetiq One",
-      "releaseNotes" : "Engineering opt-in connector v1.2.11 for the owner-operated Synthetiq One API. Adds the currently returned cdn.watching.onl and s1.akirax.buzz HLS hosts; native API-only search, details, episodes, discovery and DUB playback remain unchanged. No JavaScript, WebView or VPS changes.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.2.11"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "synthetiq-anime-testing",
-      "id" : "synthetiq-anime-testing",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/synthetiq-anime-testing\/releases\/1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e\/connector.json",
-        "sha256" : "1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e",
-        "signature" : "N0Le4sR1pf6d4WW04dL\/6FWkUJ4awi3i55LxfrRbdVVPyqf+h6EGqavHFjbVc15yxDt7d5xucIzwE\/1bV6QjCA=="
-      },
-      "minimumAppVersion" : "2.0.38",
-      "name" : "Synthetiq Anime",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow\/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub\/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.1.2"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "synthetiq-anime-direct",
-      "id" : "synthetiq-anime-direct",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/synthetiq-anime-direct\/releases\/72f5e77b14a133adcf681dc6e396d618dfea6646568780c5176dc743bfda941f\/connector.json",
-        "sha256" : "72f5e77b14a133adcf681dc6e396d618dfea6646568780c5176dc743bfda941f",
-        "signature" : "PJ+BY6G16DUD2gqqFyYcuASnPEtGpSJ\/j3\/PdaoL3kyU+5aZZYBlTmKxLi\/h4LjJV+fD1jdo1bBSIoNEeip4Cg=="
-      },
-      "minimumAppVersion" : "2.0.38",
-      "name" : "Synthetiq Flux",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.1.2"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "aniworld-expansion",
-      "id" : "aniworld-expansion",
-      "language" : "mul",
-      "manifest" : {
-        "path" : "connectors\/aniworld-expansion\/releases\/29452d11051e21263d4cf344b8020099aecb000976120ce730f31326fe5c0e66\/connector.json",
-        "sha256" : "29452d11051e21263d4cf344b8020099aecb000976120ce730f31326fe5c0e66",
-        "signature" : "iHBrd7RIiZONnmoQmHLMN9YZztBMXWAyBy0Tvy6m9omcq94m6dO\/9ybMPm4f1CvLEEWAvrHAVDCPNPO3xUxMCw=="
-      },
-      "minimumAppVersion" : "2.0.36",
-      "name" : "AniWorld",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.36+. Home\/Browse discovery and native playback resolver are unchanged. Sub-only: German-subtitle mirror first, English-subtitle fallback; German Dub is not included. Visible captions, spoken language and offline remain unverified.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.3.2"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anime-sama-expansion",
-      "id" : "anime-sama-expansion",
-      "language" : "fr",
-      "manifest" : {
-        "path" : "connectors\/anime-sama-expansion\/releases\/671258b736a3f857911c3aed0a0fb1ec5d3fd21d365fd023cfc01bd3279d692c\/connector.json",
-        "sha256" : "671258b736a3f857911c3aed0a0fb1ec5d3fd21d365fd023cfc01bd3279d692c",
-        "signature" : "oP4JC2+I7FSJhqGtWenzxOSXvRJZqJLX1HYbbgmlpgWDMrLuQON543ogt2dypJYAzDqNRBQByfgD6QcDjmVwDw=="
-      },
-      "minimumAppVersion" : "2.0.36",
-      "name" : "Anime-Sama",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.36+. Native panel, ordinal episode, Sibnet and literal Ansembed support. Playback and seeking have been demonstrated on selected titles; some routes, including the previously sampled Black Torch middle episode, may time out. Full device, language and offline certification remain incomplete.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.3.1"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anipm",
-      "id" : "anipm",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anipm\/releases\/74a21210fb2a858813153e7e0f626f4a31a7ebd1bc57bcd6d4d603779f923bda\/connector.json",
-        "sha256" : "74a21210fb2a858813153e7e0f626f4a31a7ebd1bc57bcd6d4d603779f923bda",
-        "signature" : "E5EyN0tKHXKYICPCsGyw\/RR5ZUNI\/bBBYQQn9LHJmwGcV05EXb\/7t\/GNvIayYCVUx+eMrmyTQb81RlRqPDM\/DA=="
-      },
-      "minimumAppVersion" : "1.2.0",
-      "name" : "AniPM (BETA)",
-      "releaseNotes" : "0.1.1 permits installation on Aroki 1.2.0 and newer. The unchanged native JSON\/Settlar route passed Sub\/Dub playback advancement, seeking and caption parsing against the 1.2 engine on macOS. Older readers retain their 500-episode listing limit; update Aroki for later episodes. No JavaScript or encrypted MegaPlay fallback. Physical-iPhone and offline certification remain separate.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.1.1"
+      "familyID": "aniworld-expansion",
+      "name": "AniWorld",
+      "version": "0.4.0",
+      "contentType": "video",
+      "language": "mul",
+      "contentRating": "unknown",
+      "releaseTrack": "beta",
+      "status": "active",
+      "minimumAppVersion": "2.0.36",
+      "id": "aniworld-expansion",
+      "releaseNotes": "Adds German Dub (Deutsch audio) through the AniWorld Vidmoly mirror; episodes are tagged Sub and/or Dub from AniWorld's per-episode language flags. Sub keeps the German-subtitle mirror first with English-subtitle fallback. Home/Browse discovery, search and details are unchanged. Visible captions, spoken language and offline remain unverified on device.",
+      "manifest": {
+        "path": "connectors/aniworld-expansion/connector.json",
+        "sha256": "42066a0f3286bac0b1872ed14f43ce4ea201197cfd03a8c610ebe27c666641b4"
+      }
     }
-  ],
-  "enabled" : true,
-  "generatedAt" : 1790516911,
-  "name" : "AROKI Connectors",
-  "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
-  "repositoryID" : "aroki-connectors",
-  "schemaVersion" : 1,
-  "signature" : "IOgPXQABu\/zrfA9a4NIZ+LDrbATyxeIYDn7HDAm9L3oJ3XUYLeb9iDMRSJJZELdhKTENDfh8murS+1piXFnzAw=="
+  ]
 }

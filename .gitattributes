@@ -1,0 +1,3 @@
+# Manifest checksums in index.json are computed over the exact bytes GitHub
+# serves. Keep JSON as LF on every platform so Windows checkouts hash the same.
+*.json text eol=lf

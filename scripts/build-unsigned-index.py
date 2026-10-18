@@ -15,7 +15,7 @@ from pathlib import Path
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Create a keyless Aroki index.json for an approved unsigned feed.")
-    parser.add_argument("connector_ids", nargs="+", help="Connector IDs to include, e.g. anikage animekai")
+    parser.add_argument("connector_ids", nargs="+", help="Connector IDs to include, e.g. aniworld-expansion")
     parser.add_argument("--repository-id", required=True, help="Stable lowercase repository ID")
     parser.add_argument("--name", required=True, help="Display name")
     parser.add_argument("--output", default="index.json", help="Output path relative to repository root")
@@ -27,6 +27,8 @@ def main() -> None:
     for connector_id in args.connector_ids:
         manifest_path = root / "connectors" / connector_id / "connector.json"
         raw = manifest_path.read_bytes()
+        if b"\r" in raw:
+            raise SystemExit(f"ERROR: {manifest_path} has CRLF line endings; its checksum would not match GitHub")
         manifest = json.loads(raw)
         if manifest.get("id") != connector_id:
             raise SystemExit(f"ERROR: {manifest_path} id does not match {connector_id}")
@@ -54,7 +56,7 @@ def main() -> None:
     output = (root / args.output).resolve()
     if root not in output.parents:
         raise SystemExit("ERROR: output must remain inside the repository")
-    output.write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    output.write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"WROTE: {output.relative_to(root)} with {len(entries)} connector(s).")
 
 

@@ -3,7 +3,7 @@
   "id": "aniworld-expansion",
   "familyID": "aniworld-expansion",
   "name": "AniWorld",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "minimumAppVersion": "2.0.36",
   "requiredEngineFeatures": [
     "form-post-v1",
@@ -190,6 +190,31 @@
             "title": {
               "selector": "strong",
               "part": "text"
+            },
+            "availableVariants": {
+              "collection": "td.editFunctions img.flag[src$='/german.svg'], td.editFunctions img.flag[src$='/japanese-german.svg'], td.editFunctions a:not(:has(img.flag[src$='/japanese-german.svg'])) > img.flag[src$='/japanese-english.svg']",
+              "part": "attr",
+              "attr": "src",
+              "transforms": [
+                {
+                  "op": "lastPathComponent"
+                },
+                {
+                  "op": "replaceFirst",
+                  "find": "japanese-german.svg",
+                  "with": "sub"
+                },
+                {
+                  "op": "replaceFirst",
+                  "find": "japanese-english.svg",
+                  "with": "sub"
+                },
+                {
+                  "op": "replaceFirst",
+                  "find": "german.svg",
+                  "with": "dub"
+                }
+              ]
             }
           }
         }
@@ -197,6 +222,77 @@
     },
     "streams": {
       "mirrors": [
+        {
+          "variants": [
+            "dub"
+          ],
+          "inputHosts": [
+            "aniworld.to"
+          ],
+          "finalMediaPolicy": "public-https",
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "follow": "episodeURL"
+              },
+              "response": {
+                "format": "html"
+              },
+              "extract": {
+                "context": {
+                  "embed": {
+                    "kind": "url",
+                    "selector": "li[data-lang-key='1'][data-link-target]:has(h4:contains(Vidmoly))",
+                    "part": "attr",
+                    "attr": "data-link-target",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Referer": "https://aniworld.to/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(player.setup)",
+                "selection": {
+                  "kind": "call-object-fields",
+                  "name": "player.setup",
+                  "properties": [
+                    "sources"
+                  ]
+                }
+              },
+              "extract": {
+                "collection": "value.sources[*]",
+                "fields": {
+                  "url": {
+                    "path": "file",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
+        },
         {
           "variants": [
             "sub"
@@ -390,5 +486,5 @@
       ]
     }
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Home/Browse discovery and native playback resolver are unchanged. Sub-only: German-subtitle mirror first, English-subtitle fallback; German Dub is not included. Visible captions, spoken language and offline remain unverified."
+  "releaseNotes": "Adds German Dub (Deutsch audio) through the AniWorld Vidmoly mirror; episodes are tagged Sub and/or Dub from AniWorld's per-episode language flags. Sub keeps the German-subtitle mirror first with English-subtitle fallback. Home/Browse discovery, search and details are unchanged. Visible captions, spoken language and offline remain unverified on device."
 }
