@@ -3,12 +3,12 @@
   "repositoryID": "aroki-connectors",
   "name": "AROKI Connectors",
   "enabled": true,
-  "generatedAt": 1792327142,
+  "generatedAt": 1792329473,
   "connectors": [
     {
       "familyID": "aniworld-expansion",
       "name": "AniWorld",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "contentType": "video",
       "language": "mul",
       "contentRating": "unknown",
@@ -16,10 +16,27 @@
       "status": "active",
       "minimumAppVersion": "2.0.36",
       "id": "aniworld-expansion",
-      "releaseNotes": "Adds German Dub (Deutsch audio) through the AniWorld Vidmoly mirror; episodes are tagged Sub and/or Dub from AniWorld's per-episode language flags. Sub keeps the German-subtitle mirror first with English-subtitle fallback. Home/Browse discovery, search and details are unchanged. Visible captions, spoken language and offline remain unverified on device.",
+      "releaseNotes": "Sub: German-subtitle mirror first, English-subtitle fallback. German Dub is available as the separate AniWorld (German Dub) source in this collection. Replaces 0.4.0, which Aroki rejected. Visible captions, spoken language and offline remain unverified.",
       "manifest": {
         "path": "connectors/aniworld-expansion/connector.json",
-        "sha256": "42066a0f3286bac0b1872ed14f43ce4ea201197cfd03a8c610ebe27c666641b4"
+        "sha256": "0248f32e140db4cadc74e12bd6edf02a7828681f320426f40db9703247e95913"
+      }
+    },
+    {
+      "familyID": "aniworld-german-dub",
+      "name": "AniWorld (German Dub)",
+      "version": "0.1.0",
+      "contentType": "video",
+      "language": "de",
+      "contentRating": "unknown",
+      "releaseTrack": "beta",
+      "status": "active",
+      "minimumAppVersion": "2.0.36",
+      "id": "aniworld-german-dub",
+      "releaseNotes": "German Dub (Deutsch audio) for AniWorld through its Vidmoly mirror. Episode lists only include episodes AniWorld marks with German audio. Use the AniWorld source for subtitles. Visible spoken language and offline remain unverified on device.",
+      "manifest": {
+        "path": "connectors/aniworld-german-dub/connector.json",
+        "sha256": "f94a123dd5d25ada779c463d2ad794a92d7dfcddc6d36cc02bde2c0ec78d17cb"
       }
     }
   ]
