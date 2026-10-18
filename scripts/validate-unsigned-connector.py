@@ -38,7 +38,7 @@ def walk_strings(value: object):
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Validate an Aroki connector's portable repository shape.")
-    parser.add_argument("connector_id", help="Connector directory and manifest id, e.g. anikage")
+    parser.add_argument("connector_id", help="Connector directory and manifest id, e.g. aniworld-expansion")
     args = parser.parse_args()
 
     connector_id = args.connector_id.strip().lower()
@@ -51,6 +51,8 @@ def main() -> None:
         fail(f"missing {manifest_path.relative_to(root)}")
     if manifest_path.stat().st_size > 512 * 1024:
         fail("connector manifest exceeds 512 KiB")
+    if b"\r" in manifest_path.read_bytes():
+        fail("manifest has CRLF line endings; its SHA-256 would not match the LF bytes GitHub serves")
 
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

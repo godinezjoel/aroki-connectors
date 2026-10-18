@@ -1,54 +1,24 @@
 # AROKI Connectors
 
-Public, signed connector repository for **AROKI — Made by Synthetiq**.
+Public connector repository for **AROKI - Made by Synthetiq**.
 
-This repository contains only bounded declarative JSON manifests and the
-signed `index.json` required by AROKI's repository importer. It does **not**
-contain the AROKI iOS application, executable modules, JavaScript, WebViews,
-browser automation, credentials, media files, or a proxy/backend service.
+This repository contains bounded declarative JSON manifests and the
+`index.json` used by AROKI's repository importer. It does **not** contain the
+AROKI iOS application, executable modules, JavaScript, WebViews, browser
+automation, credentials, media files, or a proxy/backend service.
 
-## Import into AROKI
+## Available connector
 
-1. Open **Profile → Sources**.
-2. In **Add verified repository**, enter:
+This repository currently contains only **AniWorld** (`aniworld-expansion`),
+an experimental multilingual video connector. It provides native declarative
+discovery, search, title details, episode listings, and stream resolution for
+the configured AniWorld hosts, with German Dub and Sub (German subtitles,
+English-subtitle fallback). The connector is version `0.4.0` and requires
+AROKI `2.0.36` or newer.
 
-   `kas021/AROKI-Connectors`
-
-3. Tap **Add verified sources**.
-4. Review the repository and signing-key fingerprint.
-5. Choose the active source from the source picker.
-
-Adding a repository verifies its repository signature, every manifest
-signature, SHA-256 digest, schema and manifest identity before a connector is
-stored locally on the device. AROKI then lets the user choose its active
-source at any time.
-
-## Published connectors
-
-- One Pace
-- AnimeGG
-
-AniKoto was retired on September 14, 2026 after repeated native checks returned
-no playable stream. Refresh the collection to receive its retired status.
-Retirement stops new install/update offers; it does not remotely delete installed
-copies, downloads, saved titles or history. Synthetiq One is unchanged.
-
-The repository also contains **Update Flow Test**, a non-catalogue fixture used
-to verify source-update handling. It is not a recommended content source.
-
-The index contains the exact compatibility track for every connector. A source
-can change independently of AROKI, so availability is not guaranteed. Users
-and source publishers remain responsible for ensuring they have permission to
-access and distribute the content they configure.
-
-AniNeko, AniLol, and AnimeAV1 were retired from the public index after the
-August 2026 Aroki certification sweep found no Aroki-compatible playback path.
-Previously installed copies remain under the user's control and can be removed
-on-device. Their historical manifests remain recoverable through Git history.
-
-Senshi, ToonTales, DonghuaWorld, and Archive Classics were withdrawn in earlier
-reviews. Previously installed copies remain under the user's control and can be
-removed on-device.
+The index contains only this connector. Availability can change independently
+of AROKI, and users and source publishers remain responsible for ensuring they
+have permission to access and distribute the content they configure.
 
 ## Safety boundary
 
@@ -57,16 +27,18 @@ They cannot add executable behavior to AROKI. The native app continues to own
 validation, request limits, host policy, parsing, caching and AVPlayer playback.
 
 The repository signing key is held outside Git and is never committed here.
+The checked-in index is an unsigned personal/test feed after this cleanup;
+official app distribution requires the protected publishing workflow to
+re-sign it.
 
 ## Windows publishing
 
-Windows contributors do not need the signing key for the official feed. Push a
-candidate branch, run the structural preflight, then dispatch the protected
-GitHub publishing workflow. For the optional bridge-build unsigned-feed path,
-see [Windows connector workflow](docs/WINDOWS_CONNECTOR_WORKFLOW.md).
-# Synthetiq Anime beta — September 11, 2026
+Windows contributors can validate the AniWorld manifest with:
 
-After signed publication, refresh this collection and add **Synthetiq Anime
-(BETA - Testing only)**. Requires **Aroki 2.0.38 (51)+**. Older apps retain their
-existing modules but cannot use this new source. [Results and remaining
-limitations](docs/synthetiq-anime-2026-09-11.md).
+```powershell
+py scripts/validate-unsigned-connector.py aniworld-expansion
+```
+
+For signed publication, push a candidate branch and dispatch the protected
+GitHub publishing workflow. For an unsigned bridge-build feed, see
+[Windows connector workflow](docs/WINDOWS_CONNECTOR_WORKFLOW.md).
