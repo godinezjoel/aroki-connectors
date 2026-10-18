@@ -9,14 +9,16 @@ automation, credentials, media files, or a proxy/backend service.
 
 ## Available connector
 
-This repository currently contains only **AniWorld** (`aniworld-expansion`),
+This feed currently offers only **AniWorld** (`aniworld-expansion`),
 an experimental multilingual video connector. It provides native declarative
 discovery, search, title details, episode listings, and stream resolution for
 the configured AniWorld hosts, with German Dub and Sub (German subtitles,
 English-subtitle fallback). The connector is version `0.4.0` and requires
 AROKI `2.0.36` or newer.
 
-The index contains only this connector. Availability can change independently
+The index contains only this connector. The other manifests, logos and the
+signed `artwork.json` are kept in sync with the upstream
+`kas021/AROKI-Connectors` collection but are not listed in this feed. Availability can change independently
 of AROKI, and users and source publishers remain responsible for ensuring they
 have permission to access and distribute the content they configure.
 
